@@ -25,14 +25,11 @@ public class Flythrough : MonoBehaviour
     Rect Down = Rect.zero;
     Rect Left = Rect.zero;
     Rect Right = Rect.zero;
-    Rect Space = Rect.zero;
 
    // public Text debugText; 
-    public int Size = 50;
-    public bool ShowButtons = true;
+    public int Size = 50;    
     private void OnGUI()
     {
-        if (ShowButtons == false) return;
         if (GUI.Button(Q, "Q")) Debug.Log("Q");
         if (GUI.Button(W, "W")) Debug.Log("W");
         if (GUI.Button(E, "E")) Debug.Log("E");
@@ -43,7 +40,6 @@ public class Flythrough : MonoBehaviour
         if (GUI.Button(Down, "Down")) Debug.Log("Down");
         if (GUI.Button(Left, "Left")) Debug.Log("Left");
         if (GUI.Button(Right, "Right")) Debug.Log("Right");
-        if (GUI.Button(Space, "Space")) Debug.Log("Space");
     }
     // Update is called once per frame
     void Update()
@@ -68,7 +64,6 @@ public class Flythrough : MonoBehaviour
         Down = new Rect(Screen.width - (Size * 2), Screen.height - Size, Size, Size);
         Left = new Rect(Screen.width - (Size * 3), Screen.height - Size, Size, Size);
         Right = new Rect(Screen.width - Size, Screen.height - Size, Size, Size);
-        Space = new Rect(Screen.width / 2 - Size / 2, Screen.height - Size, Size, Size);
 
         // Forward/Backward
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.W) || (mouse && W.Contains(mousePos)))
@@ -119,7 +114,7 @@ public class Flythrough : MonoBehaviour
 
         transform.eulerAngles += (deltaRot * CameraRotateSpeed);
 
-        if(Input.GetKeyDown(KeyCode.Space) || (mouse && Space.Contains(mousePos)))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             transform.position = CameraStartPosition;
             transform.eulerAngles = CameraStartRotation;
