@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraStartPosition: {x: -28, y: 12.86, z: 396.58}
-  CameraStartRotation: {x: 0, y: 0, z: 0}
+  CameraStartRotation: {x: 0, y: 180, z: 0}
   CameraMoveSpeed: 100
   CameraRotateSpeed: 100
   Size: 100
